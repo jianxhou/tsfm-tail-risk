@@ -1,0 +1,12 @@
+# Isolated venv for Lag-Llama (see CHANGELOG 2026-07-04: its resolver downgrades
+# uni2ts deps, so it is quarantined from the main tsfm-tails env).
+#
+# Rebuild:
+#   conda run -n tsfm-tails python -m venv .venv-lag-llama
+#   .venv-lag-llama/bin/pip install -r envs/lag-llama-requirements.txt
+#
+# torch pinned <2.6: newer torch defaults weights_only=True in torch.load, which
+# breaks Lightning 2.1.4's load_from_checkpoint on the Lag-Llama ckpt
+# (gluonts StudentTOutput not in the safe-globals allowlist).
+torch==2.4.1
+lag-llama @ git+https://github.com/time-series-foundation-models/lag-llama.git@df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9

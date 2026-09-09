@@ -1,0 +1,26 @@
+{
+ "generator": "harness/run_e3_smallsample_v21.py",
+ "group": "e3_smallsample",
+ "inputs": {
+  "data/data_manifest.yaml": "698566aaeea9e981b71c630af45daf88f5ca5505b3fdce380864a3a9d54f12a9",
+  "data/parquet/dgs30.parquet": "74fb30fd04786e29996ede9f6acf4292459b2155ae755401c0f7abb91ec517f6",
+  "data/parquet/spx.parquet": "88eab90bf30777f34675a5d89d36d654d6fd409961db596308e58f01becaf4c3",
+  "results/stage4/backtests.csv": "2d51916117ba9fca9053fba9abae0d7e7c575151e45e65a3e9f63f330048bea2",
+  "results/stage4/ctxfits/dgs30.parquet": "2b65d7ad90e58cf4d60382a719b1572103636e0b1ffa63dcbfeb194def7d8109",
+  "results/stage4/ctxfits/spx.parquet": "a17f2945ef306e81549657d4ab5745fad23ad9bcd82e1d2f9e2e03579ec36f04",
+  "results/stage4/forecast/chronos_2_dgs30.parquet": "732dc70888a2030f6d95964e9a0fc4c2dd559f5c2e82af93ff29f259b7049ed1",
+  "results/stage4/forecast/chronos_2_spx.parquet": "0b6c2f534c2c3125b317b8c41a5d491d9d490ca080a42ae3d39bd07fb4190efb",
+  "results/stage4/forecast/chronos_bolt_dgs30.parquet": "85c8d13ec0dc3d1d247d04f70f039ce590dfe39d31732e28c21b776898014554",
+  "results/stage4/forecast/chronos_bolt_spx.parquet": "109ae3c63efa9773a23d71a4b5f5b0e7702a08ea009b3c48b45357ebf7fae1ea",
+  "results/stage4/forecast/lag_llama_dgs30.parquet": "5af7524f5d415841f5de6a65fb1f57c0232a1e92cf51e62e9974598f166862b6",
+  "results/stage4/forecast/lag_llama_spx.parquet": "8b0e504734cb44241375b17e29b6a8dac9c84ce375ae987f73c333aa365221ee",
+  "results/stage4/forecast/moirai_2_0_dgs30.parquet": "6c078da52d0f01a66b33240f0c598f290d0e0bd9b390d4472d6556d7de857b2b",
+  "results/stage4/forecast/moirai_2_0_spx.parquet": "b3aa4a3df927c0a54a09e65a13e8662e797d8bdf41c13a050bd0830a06f2303f",
+  "results/stage4/forecast/timesfm_2_5_dgs30.parquet": "cdd599efa4e02dc6b81861794eaf5be5f804c7de181f4fd973d4e4b3e8fa8848",
+  "results/stage4/forecast/timesfm_2_5_spx.parquet": "87b495163b74054679b97d4e50a7a7979fa5c29a51f5524c422f78257d063262",
+  "results/stage4/run_manifest.yaml": "3cda980734b708120599fffa8f727ebc2908f8a4befacce122c400d135f281ab"
+ },
+ "outputs": {
+  "results/stage4/e3_diagnostics/smallsample_v21.csv": "692808c75d8f53c8e2fde5a712fcf053717ba6837c19f6f2d74ceca80ea127e4"
+ }
+}

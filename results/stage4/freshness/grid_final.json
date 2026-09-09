@@ -1,0 +1,14 @@
+{
+ "generator": "harness/run_grid_final.py",
+ "group": "grid_final",
+ "inputs": {
+  "results/stage4/backtests.csv": "2d51916117ba9fca9053fba9abae0d7e7c575151e45e65a3e9f63f330048bea2",
+  "results/stage4/baseline_backtests.csv": "18769e0248fdfce80a07cd0b0e6c2e193147c6e1918a5e4e7fb7be60fa52701e",
+  "results/stage4/esr_results.csv": "deacbe0302ce4797261b01a2750eaa122a57813972d2938f4fb097e86f87296b",
+  "results/stage4/mcs_membership.csv": "0f683dc3184ffd1b6460ed4f685eda4d38be3a6687076519149d95fc1640cbab",
+  "results/stage4/run_manifest.yaml": "3cda980734b708120599fffa8f727ebc2908f8a4befacce122c400d135f281ab"
+ },
+ "outputs": {
+  "docs/stage4_final_table.md": "d8c1cefad822bd1cfd8f5ab0fa44a822833de8f55fc90c899e0a74d8b1268988"
+ }
+}

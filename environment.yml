@@ -1,0 +1,39 @@
+# conda env for TSFM tail-risk audit. Python 3.11.
+# Core stats stack from conda-forge; model stack via pip (installed stepwise, see README.md).
+name: tsfm-tails
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  # --- core ---
+  - numpy
+  - pandas
+  - scipy
+  - statsmodels
+  - arch-py          # conda-forge name for `arch`
+  - matplotlib
+  # pyarrow pinned (v2.0 Phase-3 R-6): the stage-4 parquet store is written by
+  # pyarrow 24 and is NOT readable by older pyarrow (e.g. 19.x fails with
+  # "Repetition level histogram size mismatch"); an unpinned solve that lands
+  # on an older build makes every results parquet unreadable.
+  - pyarrow=24.0.0
+  - pyyaml
+  - pytest
+  - pip
+  # --- models (pip; install order = list order; MPS-capable on this Mac) ---
+  # NOTE uni2ts pins downgrade numpy/pandas/scipy/torch relative to conda-forge
+  # latest (numpy 1.26.4, pandas 2.1.4, scipy 1.11.4, torch 2.4.1). Accepted 2026-07-04.
+  - pip:
+      - torch
+      - chronos-forecasting
+      # timesfm comes from GitHub, NOT PyPI: the PyPI 2.0.2 release cannot load the
+      # TimesFM-2.5 checkpoint. Pinned commit; resolver-clean vs this env (verified
+      # via pip --dry-run 2026-07-04, no downgrades).
+      - timesfm @ git+https://github.com/google-research/timesfm.git@4a6c5cdae7ac73a450843e035fbfc3ffa08e9caf
+      - uni2ts           # Moirai
+      - gluonts
+      # lag-llama is NOT in this env: not on PyPI, and its GitHub install downgrades
+      # uni2ts deps (lightning 2.6.5 -> 2.1.4). It lives in an isolated venv
+      # (.venv-lag-llama, built from envs/lag-llama-requirements.txt, commit-pinned);
+      # the harness adapter calls it via subprocess (see the 2026-07-04 changelog note).
+      - huggingface_hub

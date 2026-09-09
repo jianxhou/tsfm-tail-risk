@@ -1,0 +1,12 @@
+{
+ "generator": "harness/run_grid_arbitration.py",
+ "group": "grid_arbitration",
+ "inputs": {
+  "results/stage4/backtests.csv": "2d51916117ba9fca9053fba9abae0d7e7c575151e45e65a3e9f63f330048bea2"
+ },
+ "outputs": {
+  "docs/stage4_btc_did.md": "5e078c26d0d94f352ccec2bb18a83eee1d13c89bffd9feaa41401b1e7ac565a0",
+  "docs/stage4_kendall_tau.md": "45c4afbd7ddda9a800d5451974c114cf1c0bf0cc6db6d84bff0b7067da280d70",
+  "results/stage4/kendall_tau_detail.csv": "bfa641eb1da9d1aa10923acb8f2d51b937b91f77054e31ee257e476de922e7ab"
+ }
+}

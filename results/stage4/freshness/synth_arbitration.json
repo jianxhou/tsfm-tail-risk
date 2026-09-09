@@ -1,0 +1,9 @@
+{
+ "generator": "synth/run_arbitration.py",
+ "group": "synth_arbitration",
+ "inputs": {},
+ "outputs": {
+  "docs/stage4_synth_arbitration.md": "f4feb16a40bb88bd76ecaa2afa2a5df7508389301ef3489681611e56543788d0",
+  "results/stage4/synth_arbitration.csv": "848fa3c5e1bd0aee34b6182ec02134fabf2ebf8ab06c1d5b4157391fb604fc67"
+ }
+}

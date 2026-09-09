@@ -1,0 +1,10 @@
+{
+ "generator": "harness/run_mechanism_h2.py",
+ "group": "mechanism_h2",
+ "inputs": {},
+ "outputs": {
+  "docs/mechanism_h2_results.md": "9455b604b7edf5411c3d3a990f2d379d5ab80892faf834a4b33e9f49a05559a3",
+  "results/mechanism/h2_resolution.csv": "4130511fe5893dfb28adc41bb53324b3ccf5f0c3d7bb1ed8c6196d0c50467d71",
+  "results/mechanism/h2_synth.csv": "1943d4a8156eefba788c5c96817021862cda8d3ac1af11754fc2642c23b8fc49"
+ }
+}

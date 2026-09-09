@@ -1,0 +1,41 @@
+{
+ "generator": "harness/run_caviar_diag_summary.py",
+ "group": "caviar_diag",
+ "inputs": {
+  "results/stage4/baselines/caviar_sav_aapl.meta.json": "df58a156d0c837991115d49801e53300f21b3a1a13a40bbed084e8399ab56a37",
+  "results/stage4/baselines/caviar_sav_amzn.meta.json": "49ebe0103e9ff1fd39890d932c75cbc70949df708127a1abc79955a26e1f3e7e",
+  "results/stage4/baselines/caviar_sav_audusd.meta.json": "ddd96bebfc092c4977306d7cbaabceddb7a45c988c973afd4eb0ab1cb289072d",
+  "results/stage4/baselines/caviar_sav_brent.meta.json": "3559c1d4edcc8e88cefd0af566944b90eb88c18bda049d5b27c732de7e22500b",
+  "results/stage4/baselines/caviar_sav_btc.meta.json": "b8f938fcc1babe6e0bc957c4203a9ffc93e61189ed439c09e616b757e2799da4",
+  "results/stage4/baselines/caviar_sav_copper.meta.json": "027d40ad9b258f5040bf4252dc4f89b46d97376548990d0b74d02571c71feba5",
+  "results/stage4/baselines/caviar_sav_csi300.meta.json": "ceaa681966c63715811bae744ac87ac18f32f01a6424300659d655390cd4d5e1",
+  "results/stage4/baselines/caviar_sav_dax.meta.json": "22461e928ee98331a80ec998b0e7d5ac28f4722cf88e16c3bd10c33e03e2e66b",
+  "results/stage4/baselines/caviar_sav_dgs10.meta.json": "1bcb2ba06c7eebffda687717c1ccb069f34957620e7d1c30609dee4f3c82b5e9",
+  "results/stage4/baselines/caviar_sav_dgs2.meta.json": "b4d825cba76c348f12589571c9a3f4c1130c9533666ecda33d16e012d008bed2",
+  "results/stage4/baselines/caviar_sav_dgs30.meta.json": "b2805db1922ff5fd6dc4ef626c43d979ddb27cb0dc6faf8cd6ff8e5d4aaa67aa",
+  "results/stage4/baselines/caviar_sav_dgs5.meta.json": "669f3ce2c7a32aeac42ac96a2287692cbf13facde3ec2fca0738704ac3f5d236",
+  "results/stage4/baselines/caviar_sav_eth.meta.json": "8067acff49d2f76fac3222f658a80458a1322fe80f4129e078bf1bf7afa3c423",
+  "results/stage4/baselines/caviar_sav_ftse.meta.json": "2068b6c8ecb43310449fe1f50e93c1cb8c3ac06be58fb053772a0d7310d0f4b7",
+  "results/stage4/baselines/caviar_sav_gbpusd.meta.json": "af00285450e47ed126c7f5dfaf6ff222d425793ce965e8bfad0f42db58d73746",
+  "results/stage4/baselines/caviar_sav_gold.meta.json": "2e7df60915d5e1b9057d2028ded162000a9cfdb52559bf0438b02909f4666516",
+  "results/stage4/baselines/caviar_sav_hsi.meta.json": "554f3b92ea46ca358e7d2dde314399aeb20deb2e0e59b92d2b5d28b35909547e",
+  "results/stage4/baselines/caviar_sav_jnj.meta.json": "134a8437aaad1c4f104d1941ca2cf20694bb70bac3eb3808ba04d15214002ce3",
+  "results/stage4/baselines/caviar_sav_jpm.meta.json": "64bcc606b20394ce2038e445e2e709cd43500a0a887baa7bae3a07d1a3486b84",
+  "results/stage4/baselines/caviar_sav_ltc.meta.json": "3059505c58a694b90dfe037b24fec276e2ff2e476772441764ee054113a24394",
+  "results/stage4/baselines/caviar_sav_msft.meta.json": "f26187936fbed9f78a405a2c374479e2e70e113284e4cfcf5ea8860768b76a37",
+  "results/stage4/baselines/caviar_sav_natgas.meta.json": "7f95242da901332d66b48ec49e7141bdb16e9cfcbbe69302c553e9edcab4dc6d",
+  "results/stage4/baselines/caviar_sav_ndx.meta.json": "aeee92adcd0d5050c2ad8caabe06b65663efadb5dae9cb5c1093dca86f0339af",
+  "results/stage4/baselines/caviar_sav_nikkei.meta.json": "32659e2eaf38159e44aa7ec1885c09237e5a96c51e92d5a876efa28ddefe29d5",
+  "results/stage4/baselines/caviar_sav_nvda.meta.json": "5cba61becd36932845aec074ed459e3018d9dcae53772802c6e526406ce7e516",
+  "results/stage4/baselines/caviar_sav_rut.meta.json": "62ba368938cdebdde12647473d665f75b0ad83d335fcf612de97be58cd784943",
+  "results/stage4/baselines/caviar_sav_spx.meta.json": "553970ac0adacb48d5c497efddc4a9217833639a83ff4094bba6bc021c273b32",
+  "results/stage4/baselines/caviar_sav_usdcad.meta.json": "437fb9dbad0ddfca99bfb2c5559b5de624d1de510c2bc5d56e67fdfecc4c6369",
+  "results/stage4/baselines/caviar_sav_usdchf.meta.json": "2483b03eb5fcd522669286d40bde7d0e9bfd080a99680312381c491227d887eb",
+  "results/stage4/baselines/caviar_sav_wmt.meta.json": "0b34aed6f6dfd5b5ccec462fe5ba3898f807aa55780964c1a2239967e335b585",
+  "results/stage4/baselines/caviar_sav_xom.meta.json": "8be20b1333607d81b77b49ad804d9e41c2597461d00d09f06e4137feac867640",
+  "results/stage4/baselines/caviar_sav_xrp.meta.json": "5c620989a2fd42a7865b3055be0ba408ebab6f0b21d08722f87a38f0eb09e82a"
+ },
+ "outputs": {
+  "results/stage4/caviar_diag_summary.csv": "1d2b23fcf610aacce88bc64b0da4d0ef272f78a110085aa9eb12458323c16d44"
+ }
+}

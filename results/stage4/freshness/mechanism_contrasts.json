@@ -1,0 +1,11 @@
+{
+ "generator": "harness/run_mechanism_contrasts.py",
+ "group": "mechanism_contrasts",
+ "inputs": {
+  "results/mechanism/backtests.csv": "ca48cf5638d6c1a5647cb00bb28c7bb3de7a9b36ca35d84bb437a1ccedf85e02",
+  "results/stage4/backtests.csv": "2d51916117ba9fca9053fba9abae0d7e7c575151e45e65a3e9f63f330048bea2"
+ },
+ "outputs": {
+  "docs/mechanism_contrasts.md": "da2f7cb4f7f23fe2f173ffde1b55e2b6b1b7faf831ea1407c0e7f8e9c52821cd"
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "value_col": "logret",
+ "ctx_len": 512,
+ "oos_start_requested": "2016-01-01",
+ "oos_end": null,
+ "actual_oos_start": "2016-01-04",
+ "late_start": false,
+ "n_windows": 2639,
+ "n_skipped_nan": 0,
+ "skipped": [],
+ "model": "chronos_base",
+ "asset": "nvda",
+ "levels": [
+  0.01,
+  0.025,
+  0.05,
+  0.1,
+  0.25,
+  0.5,
+  0.75,
+  0.9
+ ],
+ "runtime_s": 7354.6,
+ "s_per_window": 2.7869,
+ "device": "cpu",
+ "panel": "mechanism",
+ "n_samples": 1000,
+ "finished_at": "2026-07-16T21:08:08+00:00"
+}

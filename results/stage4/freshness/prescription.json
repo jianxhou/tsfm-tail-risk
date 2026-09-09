@@ -1,0 +1,14 @@
+{
+ "generator": "harness/run_prescription.py",
+ "group": "prescription",
+ "inputs": {
+  "results/stage4/baseline_backtests.csv": "18769e0248fdfce80a07cd0b0e6c2e193147c6e1918a5e4e7fb7be60fa52701e",
+  "results/stage4/repair_backtests.csv": "80142e3396bf1159217ed6fc15fd7d2b8ffda36a08b4da004184cd9648e22627",
+  "results/stage4/repair_backtests_matched.csv": "c7c16271da3f6fd21f408c46746f01ef5ca69af6b1ff86d8ab287f3e4ee61ea0",
+  "results/stage4/repair_dm.csv": "eb7b2ac148127ffd113f2dd4c91b340e1d1218ea039f1a14ca7ea5b1a81dc68d",
+  "results/stage4/repair_mcs.csv": "ad2d20614f40c34e3cce7245aca10fc1e78d7a2273e5c2d978d9ec6512687446"
+ },
+ "outputs": {
+  "docs/stage5_prescription.md": "24326615cce7b780e07c3e05195c95dc805103110846a1845c3e2b1607631753"
+ }
+}

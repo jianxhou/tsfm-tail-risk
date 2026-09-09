@@ -1,0 +1,136 @@
+"""Shared helpers for paper table/figure generation (hard rule 5: everything
+in paper/draft/generated + paper/draft/figures is emitted by these scripts,
+never hand-edited).
+
+Every aggregate that also appears in paper/evidence_pack.md is ASSERTED equal
+to the pack value here — a mismatch kills the build rather than shipping a
+silently divergent number.
+
+Report mode (authorized-recompute rounds): during a recompute round the
+evidence pack is deliberately NOT updated until the freeze phase, so pack
+mismatches are the expected, documented signature of the recomputation.
+Setting TSFM_V21_REPORT=<path> (canonical name since v2.1 Phase 3; the
+v2.0-era TSFM_V20_REPORT is kept as an alias) records every mismatch to
+<path> (and stderr) instead of raising, so tables and figures still
+regenerate. Default (unset) keeps the raising behavior.
+"""
+from __future__ import annotations
+
+import os
+import re
+from pathlib import Path
+
+REPORT_PATH = (os.environ.get("TSFM_V21_REPORT", "")
+               or os.environ.get("TSFM_V20_REPORT", ""))
+_MISMATCHES: list[str] = []
+
+
+def _record_or_raise(msg: str):
+    if REPORT_PATH:
+        _MISMATCHES.append(msg)
+        print(f"[v21-mismatch] {msg}", flush=True)
+        with open(REPORT_PATH, "a") as fh:     # append: several generator
+            fh.write(msg + "\n")               # processes share one report
+    else:
+        raise AssertionError(msg)
+
+ROOT = Path(__file__).resolve().parent.parent.parent
+S4 = ROOT / "results" / "stage4"
+GEN = ROOT / "paper" / "draft" / "generated"
+FIG = ROOT / "paper" / "draft" / "figures"
+GEN.mkdir(parents=True, exist_ok=True)
+FIG.mkdir(parents=True, exist_ok=True)
+
+# display names (paper notation)
+NAME = {
+    "chronos_bolt": "Chronos-Bolt",
+    "chronos_2": "Chronos-2",
+    "timesfm_2_5": "TimesFM-2.5",
+    "moirai_2_0": "Moirai-2.0",
+    "lag_llama": "Lag-Llama",
+    "garch_t": "GARCH(1,1)-$t$",
+    "gjr_t": "GJR-GARCH-$t$",
+    "ewma94": "EWMA(0.94)",
+    "hs250": "HS-250",
+    "hs500": "HS-500",
+    "fhs": "FHS",
+    "caviar_sav": "CAViaR-SAV",
+    "garch_evt": "GARCH-EVT",
+    "chronos_base": "Chronos-base",
+    "moirai_1_1": "Moirai-1.1",
+}
+
+TSFM = ["chronos_bolt", "chronos_2", "timesfm_2_5", "moirai_2_0", "lag_llama"]
+BASE = ["garch_t", "gjr_t", "ewma94", "hs250", "hs500", "fhs", "caviar_sav"]
+MECH = ["chronos_base", "moirai_1_1"]   # mechanism sub-panel (12-asset subset)
+
+# fixed entity colors (Okabe-Ito, CVD-safe; color follows the model everywhere)
+COLOR = {
+    "chronos_bolt": "#E69F00",
+    "chronos_2": "#0072B2",
+    "timesfm_2_5": "#009E73",
+    "moirai_2_0": "#CC79A7",
+    "lag_llama": "#D55E00",
+    "gjr_t": "#555555",
+    "fhs": "#000000",
+}
+
+
+def check(label: str, cond: bool, detail: str = ""):
+    """v2.0-aware inline assertion: frozen-value / result-claim checks route
+    through the same report-or-raise switch as assert_pct/assert_val.
+    Internal cross-source consistency checks (regenerated artifacts that must
+    agree with each other) should stay plain `assert` — those are never
+    expected to fire under a legitimate recompute."""
+    if not cond:
+        _record_or_raise(f"{label}: {detail}" if detail else label)
+
+
+def assert_pct(label: str, frac: float, want_pct: int):
+    """frac in [0,1] must round to want_pct (evidence-pack convention)."""
+    got = round(frac * 100)
+    if got != want_pct:
+        _record_or_raise(f"{label}: computed {got}% != evidence pack {want_pct}%")
+
+
+def assert_val(label: str, got: float, want: float, tol: float = 5e-4):
+    if abs(got - want) > tol:
+        _record_or_raise(f"{label}: computed {got} != evidence pack {want} (tol {tol})")
+
+
+def md_tables(text: str):
+    """Parse pipe tables (same convention as paper/build_evidence_pack.py)."""
+    out, lines, i = [], text.splitlines(), 0
+    while i < len(lines):
+        s = lines[i].strip()
+        if s.startswith("|") and i + 1 < len(lines):
+            sep = lines[i + 1].strip()
+            if sep.startswith("|") and set(sep) <= set("|-: "):
+                hdr = [c.strip() for c in s.strip("|").split("|")]
+                rows, j = [], i + 2
+                while j < len(lines) and lines[j].strip().startswith("|"):
+                    rows.append([c.strip() for c in lines[j].strip().strip("|").split("|")])
+                    j += 1
+                ctx = ""
+                for k in range(i - 1, -1, -1):
+                    if lines[k].lstrip().startswith("#"):
+                        ctx = lines[k].strip("# ").strip()
+                        break
+                out.append({"headers": hdr, "rows": rows, "ctx": ctx})
+                i = j
+                continue
+        i += 1
+    return out
+
+
+def tex_escape(s: str) -> str:
+    return (s.replace("&", r"\&").replace("%", r"\%").replace("_", r"\_")
+             .replace("#", r"\#"))
+
+
+def write_tex(name: str, body: str):
+    path = GEN / name
+    header = ("% AUTO-GENERATED by paper/figures/ scripts from results/. "
+              "Do not hand-edit.\n")
+    path.write_text(header + body)
+    print(f"wrote {path.relative_to(ROOT)}")

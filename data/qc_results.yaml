@@ -1,0 +1,1377 @@
+equity_index:
+- id: spx
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.024576149073865426
+  ret_std: 1.2160470867693207
+  ret_skew: -0.34878755721612764
+  ret_kurt: 10.640719892069816
+  zero_ret: 3
+  top_moves:
+  - - '2020-03-16'
+    - -12.77
+  - - '2008-10-13'
+    - 10.96
+  - - '2008-10-28'
+    - 10.25
+  - - '2020-03-12'
+    - -9.99
+  - - '2008-10-15'
+    - -9.47
+  outliers: []
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags: []
+- id: ndx
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.030707981983065912
+  ret_std: 1.7136500726312305
+  ret_skew: 0.04766464563521825
+  ret_kurt: 7.163648952228803
+  zero_ret: 4
+  top_moves:
+  - - '2001-01-03'
+    - 17.2
+  - - '2020-03-16'
+    - -13.0
+  - - '2008-10-13'
+    - 11.85
+  - - '2025-04-09'
+    - 11.35
+  - - '2008-09-29'
+    - -11.11
+  outliers:
+  - - '2001-01-03'
+    - 17.2
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>15.0: [(''2001-01-03'', 17.2)] — verify vs known events'
+- id: rut
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.026979554641769612
+  ret_std: 1.5360522747368814
+  ret_skew: -0.45783120723984433
+  ret_kurt: 6.538806503352657
+  zero_ret: 5
+  top_moves:
+  - - '2020-03-16'
+    - -15.4
+  - - '2008-12-01'
+    - -12.61
+  - - '2020-03-12'
+    - -11.86
+  - - '2020-03-18'
+    - -11.01
+  - - '2008-10-15'
+    - -9.95
+  outliers:
+  - - '2020-03-16'
+    - -15.4
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>15.0: [(''2020-03-16'', -15.4)] — verify vs known events'
+- id: ftse
+  n_obs: 6694
+  start: '2000-01-04'
+  end: '2026-07-03'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 252.7
+  ret_mean: 0.007041300352108978
+  ret_std: 1.1287122334246187
+  ret_skew: -0.36762183071245685
+  ret_kurt: 8.359064534190775
+  zero_ret: 8
+  top_moves:
+  - - '2020-03-12'
+    - -11.51
+  - - '2008-11-24'
+    - 9.38
+  - - '2008-10-10'
+    - -9.26
+  - - '2020-03-24'
+    - 8.67
+  - - '2008-09-19'
+    - 8.47
+  outliers: []
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags: []
+- id: dax
+  n_obs: 6729
+  start: '2000-01-03'
+  end: '2026-07-03'
+  timezone: Europe/Berlin
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 254.0
+  ret_mean: 0.019915535032875614
+  ret_std: 1.4126872019691097
+  ret_skew: -0.17098622304651842
+  ret_kurt: 6.079274191068643
+  zero_ret: 0
+  top_moves:
+  - - '2020-03-12'
+    - -13.05
+  - - '2008-10-13'
+    - 10.8
+  - - '2008-10-28'
+    - 10.69
+  - - '2020-03-24'
+    - 10.41
+  - - '2008-11-24'
+    - 9.84
+  outliers: []
+  max_stale_run: 0
+  splits: 0
+  dividends: 0
+  flags: []
+- id: csi300
+  n_obs: 3181
+  start: '2013-11-06'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.4
+  ret_mean: 0.023325477889190625
+  ret_std: 1.764418055507217
+  ret_skew: -0.11723145786389895
+  ret_kurt: 11.606787946570385
+  zero_ret: 37
+  top_moves:
+  - - '2015-07-09'
+    - 18.29
+  - - '2024-10-08'
+    - -15.37
+  - - '2015-08-24'
+    - -14.68
+  - - '2015-07-08'
+    - -12.0
+  - - '2020-03-16'
+    - -11.66
+  outliers:
+  - - '2015-07-09'
+    - 18.29
+  - - '2024-10-08'
+    - -15.37
+  max_stale_run: 2
+  splits: 0
+  dividends: 12
+  flags:
+  - '|ret|>15.0: [(''2015-07-09'', 18.29), (''2024-10-08'', -15.37)] — verify vs known
+    events'
+- id: nikkei
+  n_obs: 6491
+  start: '2000-01-04'
+  end: '2026-07-03'
+  timezone: Asia/Tokyo
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2019-04-26'
+    - '2019-05-07'
+    - 11
+  bars_per_year: 245.0
+  ret_mean: 0.020034559975073543
+  ret_std: 1.4755566517821377
+  ret_skew: -0.37681489998899537
+  ret_kurt: 6.945252418244525
+  zero_ret: 1
+  top_moves:
+  - - '2008-10-14'
+    - 13.23
+  - - '2024-08-05'
+    - -13.23
+  - - '2008-10-16'
+    - -12.11
+  - - '2011-03-15'
+    - -11.15
+  - - '2008-10-10'
+    - -10.12
+  outliers: []
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags: []
+- id: hsi
+  n_obs: 6527
+  start: '2000-01-03'
+  end: '2026-07-03'
+  timezone: Asia/Hong_Kong
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 246.3
+  ret_mean: 0.004533786552103161
+  ret_std: 1.4808084943740454
+  ret_skew: -0.17251090606582564
+  ret_kurt: 7.744419013951614
+  zero_ret: 0
+  top_moves:
+  - - '2025-04-07'
+    - -14.18
+  - - '2008-10-27'
+    - -13.58
+  - - '2008-10-28'
+    - 13.41
+  - - '2008-10-30'
+    - 12.06
+  - - '2008-01-23'
+    - 10.18
+  outliers: []
+  max_stale_run: 0
+  splits: 0
+  dividends: 0
+  flags: []
+equity_single:
+- id: aapl
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.08868692142383615
+  ret_std: 2.494867004865093
+  ret_skew: -3.9168983783980083
+  ret_kurt: 114.93206832578683
+  zero_ret: 32
+  top_moves:
+  - - '2000-09-29'
+    - -73.12
+  - - '2008-09-29'
+    - -19.75
+  - - '2001-07-18'
+    - -18.84
+  - - '2000-12-06'
+    - -17.21
+  - - '2002-06-19'
+    - -16.3
+  outliers:
+  - - '2000-09-29'
+    - -73.12
+  max_stale_run: 1
+  splits: 4
+  dividends: 56
+  flags:
+  - '|ret|>25.0: [(''2000-09-29'', -73.12)] — verify vs known events'
+- id: msft
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.03601168978061923
+  ret_std: 1.8951962926694996
+  ret_skew: -0.15457822474382024
+  ret_kurt: 9.220773855420973
+  zero_ret: 65
+  top_moves:
+  - - '2000-10-19'
+    - 17.87
+  - - '2008-10-13'
+    - 17.06
+  - - '2000-04-24'
+    - -16.96
+  - - '2020-03-16'
+    - -15.95
+  - - '2000-04-03'
+    - -15.63
+  outliers: []
+  max_stale_run: 1
+  splits: 1
+  dividends: 90
+  flags: []
+- id: nvda
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.1153806260209063
+  ret_std: 3.687063474542537
+  ret_skew: -0.20911836594836017
+  ret_kurt: 12.985926618382365
+  zero_ret: 43
+  top_moves:
+  - - '2004-08-06'
+    - -43.44
+  - - '2002-07-31'
+    - -38.2
+  - - '2008-07-03'
+    - -36.71
+  - - '2000-03-07'
+    - 35.36
+  - - '2000-03-14'
+    - -30.4
+  outliers:
+  - - '2004-08-06'
+    - -43.44
+  - - '2002-07-31'
+    - -38.2
+  - - '2008-07-03'
+    - -36.71
+  - - '2000-03-07'
+    - 35.36
+  - - '2000-03-14'
+    - -30.4
+  max_stale_run: 1
+  splits: 6
+  dividends: 55
+  flags:
+  - '|ret|>25.0: [(''2004-08-06'', -43.44), (''2002-07-31'', -38.2), (''2008-07-03'',
+    -36.71), (''2000-03-07'', 35.36), (''2000-03-14'', -30.4)] — verify vs known events'
+- id: amzn
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.05995187994435459
+  ret_std: 3.027469740350237
+  ret_skew: 0.418844201814782
+  ret_kurt: 13.10860518593296
+  zero_ret: 28
+  top_moves:
+  - - '2001-11-26'
+    - 29.62
+  - - '2001-04-09'
+    - 28.95
+  - - '2001-07-24'
+    - -28.46
+  - - '2001-11-14'
+    - 26.37
+  - - '2006-07-26'
+    - -24.62
+  outliers:
+  - - '2001-11-26'
+    - 29.62
+  - - '2001-04-09'
+    - 28.95
+  - - '2001-07-24'
+    - -28.46
+  - - '2001-11-14'
+    - 26.37
+  max_stale_run: 2
+  splits: 1
+  dividends: 0
+  flags:
+  - '|ret|>25.0: [(''2001-11-26'', 29.62), (''2001-04-09'', 28.95), (''2001-07-24'',
+    -28.46), (''2001-11-14'', 26.37)] — verify vs known events'
+- id: jpm
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.04031301739601095
+  ret_std: 2.304459159328943
+  ret_skew: 0.21174282858125903
+  ret_kurt: 14.73824295648574
+  zero_ret: 38
+  top_moves:
+  - - '2009-01-20'
+    - -23.23
+  - - '2009-01-21'
+    - 22.39
+  - - '2009-03-23'
+    - 22.05
+  - - '2009-03-10'
+    - 20.41
+  - - '2002-07-23'
+    - -19.98
+  outliers: []
+  max_stale_run: 1
+  splits: 1
+  dividends: 106
+  flags: []
+- id: xom
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.031305916629338154
+  ret_std: 1.654789984958375
+  ret_skew: -0.09056598340509238
+  ret_kurt: 8.393216558379645
+  zero_ret: 37
+  top_moves:
+  - - '2008-10-13'
+    - 15.86
+  - - '2008-10-15'
+    - -15.03
+  - - '2020-03-09'
+    - -13.04
+  - - '2008-10-28'
+    - 12.46
+  - - '2008-10-09'
+    - -12.43
+  outliers: []
+  max_stale_run: 1
+  splits: 1
+  dividends: 107
+  flags: []
+- id: jnj
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.036475326596026675
+  ret_std: 1.2083507964458764
+  ret_skew: -0.4533157279711365
+  ret_kurt: 13.714648221775645
+  zero_ret: 42
+  top_moves:
+  - - '2002-07-19'
+    - -17.25
+  - - '2008-10-13'
+    - 11.54
+  - - '2018-12-14'
+    - -10.58
+  - - '2000-03-24'
+    - -10.19
+  - - '2008-11-13'
+    - 8.25
+  outliers: []
+  max_stale_run: 2
+  splits: 1
+  dividends: 106
+  flags: []
+- id: wmt
+  n_obs: 6664
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 0.031022571745929015
+  ret_std: 1.4778499826081424
+  ret_skew: 0.03240654750325941
+  ret_kurt: 8.236540809104609
+  zero_ret: 33
+  top_moves:
+  - - '2022-05-17'
+    - -12.08
+  - - '2020-03-17'
+    - 11.07
+  - - '2018-02-20'
+    - -10.74
+  - - '2015-10-14'
+    - -10.58
+  - - '2008-10-28'
+    - 10.5
+  outliers: []
+  max_stale_run: 1
+  splits: 1
+  dividends: 106
+  flags: []
+fx:
+- id: eurusd
+  n_obs: 5861
+  start: '2003-12-01'
+  end: '2026-07-03'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2008-07-31'
+    - '2008-08-08'
+    - 8
+  - - '2008-08-08'
+    - '2008-08-26'
+    - 18
+  bars_per_year: 259.5
+  ret_mean: -0.000765210716793487
+  ret_std: 0.6913207866895178
+  ret_skew: 0.550855218207669
+  ret_kurt: 99.86461359236222
+  zero_ret: 25
+  masked: 0
+  top_moves:
+  - - '2008-12-08'
+    - 15.96
+  - - '2008-12-09'
+    - -14.33
+  - - '2008-10-08'
+    - 9.6
+  - - '2008-10-09'
+    - -9.53
+  - - '2008-02-08'
+    - 7.27
+  outliers:
+  - - '2008-12-08'
+    - 15.96
+  - - '2008-12-09'
+    - -14.33
+  - - '2008-10-08'
+    - 9.6
+  - - '2008-10-09'
+    - -9.53
+  - - '2008-02-08'
+    - 7.27
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>6.0: [(''2008-12-08'', 15.96), (''2008-12-09'', -14.33), (''2008-10-08'',
+    9.6), (''2008-10-09'', -9.53), (''2008-02-08'', 7.27)] — verify vs known events'
+- id: usdjpy
+  n_obs: 6881
+  start: '2000-01-03'
+  end: '2026-07-03'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2008-07-31'
+    - '2008-08-08'
+    - 8
+  - - '2008-08-08'
+    - '2008-08-26'
+    - 18
+  bars_per_year: 259.7
+  ret_mean: 0.006708813750813869
+  ret_std: 0.7040868287497902
+  ret_skew: -0.5258258648047379
+  ret_kurt: 100.85273420139319
+  zero_ret: 35
+  masked: 0
+  top_moves:
+  - - '2008-12-09'
+    - -16.85
+  - - '2008-12-08'
+    - 16.29
+  - - '2008-10-09'
+    - -10.1
+  - - '2008-10-08'
+    - 8.16
+  - - '2008-04-09'
+    - -6.06
+  outliers:
+  - - '2008-12-09'
+    - -16.85
+  - - '2008-12-08'
+    - 16.29
+  - - '2008-10-09'
+    - -10.1
+  - - '2008-10-08'
+    - 8.16
+  - - '2008-04-09'
+    - -6.06
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>6.0: [(''2008-12-09'', -16.85), (''2008-12-08'', 16.29), (''2008-10-09'',
+    -10.1), (''2008-10-08'', 8.16), (''2008-04-09'', -6.06)] — verify vs known events'
+- id: gbpusd
+  n_obs: 5874
+  start: '2003-12-01'
+  end: '2026-07-04'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 1
+  gaps: []
+  bars_per_year: 260.0
+  ret_mean: -0.004300789805763495
+  ret_std: 0.5840201058614728
+  ret_skew: -0.6594854242646235
+  ret_kurt: 8.849045078897582
+  zero_ret: 22
+  masked: 0
+  top_moves:
+  - - '2016-06-27'
+    - -7.91
+  - - '2022-09-26'
+    - -4.23
+  - - '2020-03-19'
+    - -4.18
+  - - '2009-01-20'
+    - -3.87
+  - - '2008-10-28'
+    - 3.48
+  outliers:
+  - - '2016-06-27'
+    - -7.91
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>6.0: [(''2016-06-27'', -7.91)] — verify vs known events'
+- id: audusd
+  n_obs: 5238
+  start: '2006-05-16'
+  end: '2026-07-04'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 1
+  gaps: []
+  bars_per_year: 260.2
+  ret_mean: -0.0019041766178681486
+  ret_std: 0.7775099371180273
+  ret_skew: -0.38533865582879706
+  ret_kurt: 13.035245877562511
+  zero_ret: 24
+  masked: 0
+  top_moves:
+  - - '2008-10-13'
+    - 9.0
+  - - '2008-10-24'
+    - -7.76
+  - - '2008-10-06'
+    - -7.54
+  - - '2008-10-28'
+    - 7.2
+  - - '2008-10-15'
+    - -6.58
+  outliers:
+  - - '2008-10-13'
+    - 9.0
+  - - '2008-10-24'
+    - -7.76
+  - - '2008-10-06'
+    - -7.54
+  - - '2008-10-28'
+    - 7.2
+  - - '2008-10-15'
+    - -6.58
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>6.0: [(''2008-10-13'', 9.0), (''2008-10-24'', -7.76), (''2008-10-06'',
+    -7.54), (''2008-10-28'', 7.2), (''2008-10-15'', -6.58)] — verify vs known events'
+- id: usdcad
+  n_obs: 5930
+  start: '2003-09-17'
+  end: '2026-07-04'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 1
+  gaps: []
+  bars_per_year: 260.1
+  ret_mean: 0.0006428897463032824
+  ret_std: 0.5348103975940299
+  ret_skew: 0.14473968746818566
+  ret_kurt: 3.4709961363025172
+  zero_ret: 19
+  masked: 0
+  top_moves:
+  - - '2008-10-29'
+    - -3.69
+  - - '2008-10-22'
+    - 3.6
+  - - '2008-11-20'
+    - 3.25
+  - - '2007-11-12'
+    - 3.21
+  - - '2021-01-01'
+    - -3.19
+  outliers: []
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags: []
+- id: usdchf
+  n_obs: 5927
+  start: '2003-09-17'
+  end: '2026-07-03'
+  timezone: Europe/London
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 260.0
+  ret_mean: -0.009152501971724923
+  ret_std: 0.6597347558062213
+  ret_skew: -2.9363081665252686
+  ret_kurt: 99.78217035554025
+  zero_ret: 24
+  masked: 0
+  top_moves:
+  - - '2015-01-16'
+    - -17.61
+  - - '2011-09-07'
+    - 9.24
+  - - '2009-02-06'
+    - -7.88
+  - - '2009-02-09'
+    - 7.54
+  - - '2011-08-12'
+    - 4.79
+  outliers:
+  - - '2015-01-16'
+    - -17.61
+  - - '2011-09-07'
+    - 9.24
+  - - '2009-02-06'
+    - -7.88
+  - - '2009-02-09'
+    - 7.54
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>6.0: [(''2015-01-16'', -17.61), (''2011-09-07'', 9.24), (''2009-02-06'',
+    -7.88), (''2009-02-09'', 7.54)] — verify vs known events'
+crypto:
+- id: btc
+  n_obs: 4309
+  start: '2014-09-17'
+  end: '2026-07-04'
+  timezone: UTC
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 1231
+  gaps: []
+  bars_per_year: 365.3
+  ret_mean: 0.11444731004291886
+  ret_std: 3.506041893315499
+  ret_skew: -0.7071861590875856
+  ret_kurt: 11.863768459793995
+  zero_ret: 1
+  top_moves:
+  - - '2020-03-12'
+    - -46.47
+  - - '2015-01-14'
+    - -23.76
+  - - '2017-12-07'
+    - 22.51
+  - - '2017-07-20'
+    - 21.46
+  - - '2017-09-14'
+    - -20.75
+  outliers:
+  - - '2020-03-12'
+    - -46.47
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>40.0: [(''2020-03-12'', -46.47)] — verify vs known events'
+- id: eth
+  n_obs: 3160
+  start: '2017-11-09'
+  end: '2026-07-04'
+  timezone: UTC
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 903
+  gaps: []
+  bars_per_year: 365.4
+  ret_mean: 0.05443390094453872
+  ret_std: 4.489403475002739
+  ret_skew: -0.769805604654326
+  ret_kurt: 10.653780087005106
+  zero_ret: 0
+  top_moves:
+  - - '2020-03-12'
+    - -55.07
+  - - '2021-05-19'
+    - -31.75
+  - - '2017-12-12'
+    - 23.47
+  - - '2021-01-03'
+    - 23.07
+  - - '2021-05-24'
+    - 22.56
+  outliers:
+  - - '2020-03-12'
+    - -55.07
+  max_stale_run: 0
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>40.0: [(''2020-03-12'', -55.07)] — verify vs known events'
+- id: xrp
+  n_obs: 3160
+  start: '2017-11-09'
+  end: '2026-07-04'
+  timezone: UTC
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 903
+  gaps: []
+  bars_per_year: 365.4
+  ret_mean: 0.05315576673652166
+  ret_std: 5.568171763942467
+  ret_skew: 1.1259103745427637
+  ret_kurt: 20.73226552578432
+  zero_ret: 0
+  top_moves:
+  - - '2017-12-14'
+    - 60.69
+  - - '2020-12-23'
+    - -55.05
+  - - '2023-07-13'
+    - 54.86
+  - - '2021-01-30'
+    - 44.48
+  - - '2017-12-29'
+    - 43.68
+  outliers:
+  - - '2017-12-14'
+    - 60.69
+  - - '2020-12-23'
+    - -55.05
+  - - '2023-07-13'
+    - 54.86
+  - - '2021-01-30'
+    - 44.48
+  - - '2017-12-29'
+    - 43.68
+  max_stale_run: 0
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>40.0: [(''2017-12-14'', 60.69), (''2020-12-23'', -55.05), (''2023-07-13'',
+    54.86), (''2021-01-30'', 44.48), (''2017-12-29'', 43.68)] — verify vs known events'
+- id: ltc
+  n_obs: 4309
+  start: '2014-09-17'
+  end: '2026-07-04'
+  timezone: UTC
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 1231
+  gaps: []
+  bars_per_year: 365.3
+  ret_mean: 0.050784641486433794
+  ret_std: 5.093997898397131
+  ret_skew: 0.06755156498422649
+  ret_kurt: 13.685459381917784
+  zero_ret: 0
+  top_moves:
+  - - '2015-07-10'
+    - -51.46
+  - - '2017-03-30'
+    - 51.14
+  - - '2020-03-12'
+    - -44.91
+  - - '2021-05-19'
+    - -44.12
+  - - '2017-09-14'
+    - -39.5
+  outliers:
+  - - '2015-07-10'
+    - -51.46
+  - - '2017-03-30'
+    - 51.14
+  - - '2020-03-12'
+    - -44.91
+  - - '2021-05-19'
+    - -44.12
+  max_stale_run: 0
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>40.0: [(''2015-07-10'', -51.46), (''2017-03-30'', 51.14), (''2020-03-12'',
+    -44.91), (''2021-05-19'', -44.12)] — verify vs known events'
+commodity:
+- id: brent
+  n_obs: 4711
+  start: '2007-07-30'
+  end: '2026-07-03'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2009-04-14'
+    - '2009-05-01'
+    - 17
+  bars_per_year: 248.9
+  ret_mean: -0.0010368659412208889
+  ret_std: 2.420074068954061
+  ret_skew: -0.8022114451932872
+  ret_kurt: 12.028749882973049
+  zero_ret: 26
+  top_moves:
+  - - '2020-04-21'
+    - -27.98
+  - - '2020-03-09'
+    - -27.58
+  - - '2020-04-02'
+    - 19.08
+  - - '2026-04-01'
+    - -15.69
+  - - '2020-03-18'
+    - -14.39
+  outliers:
+  - - '2020-04-21'
+    - -27.98
+  - - '2020-03-09'
+    - -27.58
+  max_stale_run: 3
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>25.0: [(''2020-04-21'', -27.98), (''2020-03-09'', -27.58)] — verify vs
+    known events'
+- id: gold
+  n_obs: 6484
+  start: '2000-08-30'
+  end: '2026-07-03'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 250.9
+  ret_mean: 0.04206460455297507
+  ret_std: 1.1262901437786368
+  ret_skew: -0.4845448725061871
+  ret_kurt: 6.791983728284643
+  zero_ret: 45
+  top_moves:
+  - - '2026-01-30'
+    - -12.07
+  - - '2013-04-15'
+    - -9.82
+  - - '2008-09-17'
+    - 8.64
+  - - '2006-06-13'
+    - -7.58
+  - - '2009-03-19'
+    - 7.54
+  outliers: []
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags: []
+- id: copper
+  n_obs: 6489
+  start: '2000-08-30'
+  end: '2026-07-03'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.1
+  ret_mean: 0.030064433229791496
+  ret_std: 1.7232777138289326
+  ret_skew: -0.6050702897184835
+  ret_kurt: 10.845268300356228
+  zero_ret: 63
+  top_moves:
+  - - '2025-07-31'
+    - -25.17
+  - - '2025-07-08'
+    - 12.44
+  - - '2008-10-29'
+    - 11.77
+  - - '2008-10-10'
+    - -11.69
+  - - '2004-10-13'
+    - -11.67
+  outliers:
+  - - '2025-07-31'
+    - -25.17
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>25.0: [(''2025-07-31'', -25.17)] — verify vs known events'
+- id: natgas
+  n_obs: 6490
+  start: '2000-08-30'
+  end: '2026-07-03'
+  timezone: America/New_York
+  unit: logret×100
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.2
+  ret_mean: -0.006049340296000638
+  ret_std: 3.8565942593659175
+  ret_skew: -0.310751960527104
+  ret_kurt: 18.17653259709629
+  zero_ret: 29
+  top_moves:
+  - - '2026-01-29'
+    - -64.4
+  - - '2022-01-27'
+    - 38.17
+  - - '2003-02-24'
+    - 32.37
+  - - '2022-01-28'
+    - -30.05
+  - - '2026-02-02'
+    - -29.64
+  outliers:
+  - - '2026-01-29'
+    - -64.4
+  - - '2022-01-27'
+    - 38.17
+  - - '2003-02-24'
+    - 32.37
+  - - '2022-01-28'
+    - -30.05
+  - - '2026-02-02'
+    - -29.64
+  max_stale_run: 1
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>25.0: [(''2026-01-29'', -64.4), (''2022-01-27'', 38.17), (''2003-02-24'',
+    32.37), (''2022-01-28'', -30.05), (''2026-02-02'', -29.64)] — verify vs known
+    events'
+rates:
+- id: dgs2
+  n_obs: 6628
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: Δbp
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 250.2
+  ret_mean: -0.03380111664403197
+  ret_std: 5.456582028691531
+  ret_skew: -0.39389590060012447
+  ret_kurt: 8.516073073019564
+  zero_ret: 1137
+  masked: 0
+  top_moves:
+  - - '2023-03-13'
+    - -57.0
+  - - '2001-09-13'
+    - -54.0
+  - - '2008-09-15'
+    - -45.0
+  - - '2008-09-29'
+    - -41.0
+  - - '2008-09-19'
+    - 38.0
+  outliers:
+  - - '2023-03-13'
+    - -57.0
+  - - '2001-09-13'
+    - -54.0
+  max_stale_run: 7
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>50.0: [(''2023-03-13'', -57.0), (''2001-09-13'', -54.0)] — verify vs known
+    events'
+- id: dgs5
+  n_obs: 6628
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: Δbp
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 250.2
+  ret_mean: -0.03425381017051456
+  ret_std: 6.073839143540723
+  ret_skew: -0.06930817143897285
+  ret_kurt: 3.1325669222444694
+  zero_ret: 570
+  masked: 0
+  top_moves:
+  - - '2009-03-18'
+    - -46.0
+  - - '2008-09-15'
+    - -38.0
+  - - '2001-09-13'
+    - -38.0
+  - - '2008-09-29'
+    - -35.0
+  - - '2008-09-19'
+    - 34.0
+  outliers: []
+  max_stale_run: 4
+  splits: 0
+  dividends: 0
+  flags: []
+- id: dgs10
+  n_obs: 6628
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: Δbp
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 250.2
+  ret_mean: -0.03153764901161912
+  ret_std: 5.785120028012244
+  ret_skew: -0.018947181009108485
+  ret_kurt: 2.4028705500880965
+  zero_ret: 518
+  masked: 0
+  top_moves:
+  - - '2009-03-18'
+    - -51.0
+  - - '2022-11-10'
+    - -30.0
+  - - '2020-03-17'
+    - 29.0
+  - - '2022-06-13'
+    - 28.0
+  - - '2008-11-20'
+    - -28.0
+  outliers:
+  - - '2009-03-18'
+    - -51.0
+  max_stale_run: 4
+  splits: 0
+  dividends: 0
+  flags:
+  - '|ret|>50.0: [(''2009-03-18'', -51.0)] — verify vs known events'
+- id: dgs30
+  n_obs: 5634
+  start: '2000-01-03'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: Δbp
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2002-02-15'
+    - '2006-02-09'
+    - 1455
+  bars_per_year: 212.7
+  ret_mean: -0.013671875
+  ret_std: 5.3800335183041215
+  ret_skew: -0.04971875778323149
+  ret_kurt: 2.268901735495268
+  zero_ret: 454
+  masked: 1
+  top_moves:
+  - - '2001-10-31'
+    - -33.0
+  - - '2008-11-20'
+    - -32.0
+  - - '2020-03-06'
+    - -31.0
+  - - '2020-03-10'
+    - 29.0
+  - - '2020-03-17'
+    - 29.0
+  outliers: []
+  max_stale_run: 3
+  splits: 0
+  dividends: 0
+  flags:
+  - 212.7 bars/yr outside [230,262]
+vol_index:
+- id: vix
+  n_obs: 6667
+  start: '2000-01-03'
+  end: '2026-07-07'
+  timezone: America/Chicago
+  unit: level
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps: []
+  bars_per_year: 251.5
+  ret_mean: 19.8266996742189
+  ret_std: 8.302477860090653
+  ret_skew: 2.25037610642654
+  ret_kurt: 8.445416529369151
+  zero_ret: 0
+  masked: 0
+  top_moves:
+  - - '2020-03-16'
+    - 82.69
+  - - '2008-11-20'
+    - 80.86
+  - - '2008-10-27'
+    - 80.06
+  - - '2008-10-24'
+    - 79.13
+  - - '2020-03-18'
+    - 76.45
+  outliers: []
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags: []
+- id: move
+  n_obs: 5844
+  start: '2002-11-12'
+  end: '2026-07-02'
+  timezone: America/New_York
+  unit: level
+  dup_dates: 0
+  nonmonotonic: false
+  bad_close: 0
+  weekend_bars: 0
+  gaps:
+  - - '2013-03-15'
+    - '2013-03-25'
+    - 10
+  bars_per_year: 247.3
+  ret_mean: 86.97822006397942
+  ret_std: 30.5605758888797
+  ret_skew: 1.1750505293359628
+  ret_kurt: 2.0595246205830766
+  zero_ret: 0
+  masked: 0
+  top_moves:
+  - - '2008-10-10'
+    - 264.6
+  - - '2008-10-09'
+    - 250.1
+  - - '2008-10-08'
+    - 239.8
+  - - '2008-10-24'
+    - 239.4
+  - - '2008-10-27'
+    - 237.0
+  outliers: []
+  max_stale_run: 2
+  splits: 0
+  dividends: 0
+  flags: []

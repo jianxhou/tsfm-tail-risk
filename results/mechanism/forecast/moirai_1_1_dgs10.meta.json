@@ -1,0 +1,29 @@
+{
+ "value_col": "dbp",
+ "ctx_len": 512,
+ "oos_start_requested": "2016-01-01",
+ "oos_end": null,
+ "actual_oos_start": "2016-01-04",
+ "late_start": false,
+ "n_windows": 2625,
+ "n_skipped_nan": 0,
+ "skipped": [],
+ "model": "moirai_1_1",
+ "asset": "dgs10",
+ "levels": [
+  0.01,
+  0.025,
+  0.05,
+  0.1,
+  0.25,
+  0.5,
+  0.75,
+  0.9
+ ],
+ "runtime_s": 8861.3,
+ "s_per_window": 3.3757,
+ "device": "cpu",
+ "panel": "mechanism",
+ "n_samples": 1000,
+ "finished_at": "2026-07-16T23:41:33+00:00"
+}

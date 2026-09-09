@@ -1,0 +1,86 @@
+# Data universe (proposal §3.2: 股指×8, 个股×8, FX×6, 加密×4, 商品×4, 利率×4 = 34 series).
+#
+# Sources: proposal lists stooq/yfinance/FRED/exchange APIs. Stooq serves a JS anti-bot
+# challenge to non-browser clients, so market series use the Yahoo Finance chart API
+# (same underlying source as yfinance) and rates use the FRED CSV endpoint — both via
+# stdlib HTTP, zero added dependencies.
+#
+# Panel decisions (2026-07-04, user-approved; see CHANGELOG):
+# - DJI→RUT, CAC→CSI300: reduce US/EU large-cap redundancy, add small-cap + China onshore.
+# - CSI300 via Yahoo 000300.SS FAILED (history starts 2021-03-11 only) → ASHR ETF proxy
+#   (NYSE, USD, 2013-11→; dividend-adjusted close). Onshore CSI300 exposure with US-session
+#   timing + FX overlay — caveat recorded in manifest.
+# - ndx corrected: ^IXIC (Composite) → ^NDX (Nasdaq-100).
+# - Oil = Brent (BZ=F). WTI dropped: 2020-04-20 negative settle makes log returns
+#   undefined; decision in CHANGELOG.
+# - Crypto keeps its native 7-day calendar (calendar: 7d); never aligned to trading days.
+# - Rates (FRED constant-maturity yields) use first differences in bp (transform: diff_bp),
+#   NOT log returns; output column is `dbp` so units can never silently mix downstream.
+
+equity_index:
+  - {id: spx,    name: S&P 500,                 symbol: ^GSPC,  source: yahoo, region: US}
+  - {id: ndx,    name: NASDAQ 100,              symbol: ^NDX,   source: yahoo, region: US}
+  - {id: rut,    name: Russell 2000,            symbol: ^RUT,   source: yahoo, region: US}
+  - {id: ftse,   name: FTSE 100,                symbol: ^FTSE,  source: yahoo, region: GB}
+  - {id: dax,    name: DAX,                     symbol: ^GDAXI, source: yahoo, region: DE}
+  - {id: csi300, name: CSI 300 (ASHR ETF proxy), symbol: ASHR,  source: yahoo, region: CN,
+     note: "proxy: Yahoo 000300.SS history starts 2021-03 only; ASHR = Xtrackers CSI300 ETF, NYSE/USD, adj close"}
+  - {id: nikkei, name: Nikkei 225,              symbol: ^N225,  source: yahoo, region: JP}
+  - {id: hsi,    name: Hang Seng Index,         symbol: ^HSI,   source: yahoo, region: HK}
+
+equity_single:
+  - {id: aapl, name: Apple,            symbol: AAPL, source: yahoo, region: US}
+  - {id: msft, name: Microsoft,        symbol: MSFT, source: yahoo, region: US}
+  - {id: nvda, name: NVIDIA,           symbol: NVDA, source: yahoo, region: US}
+  - {id: amzn, name: Amazon,           symbol: AMZN, source: yahoo, region: US}
+  - {id: jpm,  name: JPMorgan Chase,   symbol: JPM,  source: yahoo, region: US}
+  - {id: xom,  name: Exxon Mobil,      symbol: XOM,  source: yahoo, region: US}
+  - {id: jnj,  name: Johnson & Johnson, symbol: JNJ, source: yahoo, region: US}
+  - {id: wmt,  name: Walmart,          symbol: WMT,  source: yahoo, region: US}
+
+fx:
+  # eurusd/usdjpy are QUARANTINED (CHANGELOG 2026-07-04): Yahoo history carries
+  # impossible ±16% one-day moves on 2008-12-08/09 plus Aug-2008 calendar holes.
+  # data.load hard-fails on quarantined series; lift only after cross-verification
+  # against FRED H.10 (DEXUSEU/DEXJPUS) once FRED is reachable.
+  - {id: eurusd, name: EUR/USD, symbol: EURUSD=X, source: yahoo, quarantined: true,
+     quarantine_reason: "Yahoo bad ticks 2008-12-08/09 (±16%) + Aug-2008 holes; pending FRED H.10 cross-check"}
+  - {id: usdjpy, name: USD/JPY, symbol: JPY=X,    source: yahoo, quarantined: true,
+     quarantine_reason: "Yahoo bad ticks 2008-12-08/09 (±16%) + Aug-2008 holes; pending FRED H.10 cross-check"}
+  - {id: gbpusd, name: GBP/USD, symbol: GBPUSD=X, source: yahoo}
+  - {id: audusd, name: AUD/USD, symbol: AUDUSD=X, source: yahoo}
+  - {id: usdcad, name: USD/CAD, symbol: CAD=X,    source: yahoo}
+  - {id: usdchf, name: USD/CHF, symbol: CHF=X,    source: yahoo}
+
+crypto:
+  - {id: btc, name: Bitcoin,  symbol: BTC-USD, source: yahoo, calendar: 7d}
+  - {id: eth, name: Ethereum, symbol: ETH-USD, source: yahoo, calendar: 7d}
+  - {id: xrp, name: XRP,      symbol: XRP-USD, source: yahoo, calendar: 7d}
+  - {id: ltc, name: Litecoin, symbol: LTC-USD, source: yahoo, calendar: 7d}
+
+commodity:
+  - {id: brent,  name: Brent Crude (front month),   symbol: BZ=F, source: yahoo,
+     note: "oil = Brent, not WTI (2020-04-20 negative WTI settle; see CHANGELOG)"}
+  - {id: gold,   name: Gold (front month),          symbol: GC=F, source: yahoo}
+  - {id: copper, name: Copper (front month),        symbol: HG=F, source: yahoo}
+  - {id: natgas, name: Natural Gas (front month),   symbol: NG=F, source: yahoo}
+
+# Rates come from treasury.gov's daily par yield curve — the PRIMARY source behind
+# FRED's DGS series (same CMT quantity, no proxy caveat). Chosen 2026-07-04 after
+# (a) fred.stlouisfed.org became unreachable from this network (IP-level) and
+# (b) Yahoo's CBOE yield indices (^IRX/^FVX/^TNX/^TYX) turned out to serve only the
+# latest bar — no history via the chart API. When FRED recovers: cross-diff these
+# against DGS2/5/10/30 as a consistency check (see CHANGELOG).
+# Volatility indices for Stage-5 regime episode dating (docs/stage5_design.md §B,
+# rule6_decision.md). NOT part of the 34-series forecast panel — level series only,
+# consumed by regimes/rules.py. transform: level (stores the raw close as `level`).
+vol_index:
+  - {id: vix,  name: CBOE VIX,        symbol: ^VIX,  source: yahoo, transform: level}
+  - {id: move, name: ICE BofA MOVE,   symbol: ^MOVE, source: yahoo, transform: level}
+
+rates:
+  - {id: dgs2,  name: US 2y Treasury par yield,  symbol: "2 Yr",  source: treasury, transform: diff_bp}
+  - {id: dgs5,  name: US 5y Treasury par yield,  symbol: "5 Yr",  source: treasury, transform: diff_bp}
+  - {id: dgs10, name: US 10y Treasury par yield, symbol: "10 Yr", source: treasury, transform: diff_bp}
+  - {id: dgs30, name: US 30y Treasury par yield, symbol: "30 Yr", source: treasury, transform: diff_bp,
+     note: "known issuance gap 2002-02 → 2006-02 (30y discontinued); QC gap flag expected"}

@@ -1,0 +1,122 @@
+config_hash: d8d9e7c8f58dc5d2
+frozen_at: '2026-07-07T18:20:56+00:00'
+stage: 4
+protocol:
+  ctx_len: 512
+  ctx_ablation:
+  - 256
+  - 2048
+  oos_start: '2016-01-01'
+  fit_len: 1000
+  refit_every: 21
+  alphas:
+  - 0.01
+  - 0.025
+  - 0.05
+  erules:
+  - e0
+  - e1
+  - e2
+  - e3
+  seed: 20260706
+  horizon: 1
+models:
+  chronos_bolt:
+    hf_revision: 5d9f166d69f47aef3401367a7b842e78fe97b121
+    head_type: bounded_quantile_grid
+    native_tail_behavior: clamp-to-decile-edge
+  chronos_2:
+    hf_revision: 29ec3766d36d6f73f0696f85560a422f50e8498c
+    head_type: quantile
+    native_tail_behavior: distinguishable
+  timesfm_2_5:
+    hf_revision: 1d952420fba87f3c6dee4f240de0f1a0fbc790e3
+    head_type: quantile
+    native_tail_behavior: reject-non-decile
+  moirai_2_0:
+    hf_revision: 30f43ff08c8494f4943ae1521e9d4e94a0fbb389
+    head_type: quantile
+    native_tail_behavior: distinguishable
+  lag_llama:
+    hf_revision: 72dcfc29da106acfe38250a60f4ae29d1e56a3d9
+    head_type: parametric_student_t
+    native_tail_behavior: analytic-parametric
+assets:
+- aapl
+- amzn
+- audusd
+- brent
+- btc
+- copper
+- csi300
+- dax
+- dgs10
+- dgs2
+- dgs30
+- dgs5
+- eth
+- ftse
+- gbpusd
+- gold
+- hsi
+- jnj
+- jpm
+- ltc
+- msft
+- natgas
+- ndx
+- nikkei
+- nvda
+- rut
+- spx
+- usdcad
+- usdchf
+- wmt
+- xom
+- xrp
+quarantined_excluded:
+- eurusd
+- usdjpy
+econometric_baselines:
+- garch_t
+- gjr_t
+- ewma94
+- hs250
+- hs500
+- fhs
+- caviar_sav
+statistics:
+  kupiec: enabled
+  christoffersen_cc: enabled
+  dq: enabled
+  quantile_score: enabled
+  fz0: enabled
+  as_z2: enabled
+  dm: enabled
+  mcs: enabled
+  n_alpha: enabled
+  precision_floor: enabled
+  fragile_flag: enabled
+  mc_calibrated_critical_values: enabled
+  esr: vendored-r-engine
+  gas_crosscheck: dropped-per-3.1
+ranking_rules:
+  conditional_on_erule: true
+  headline_heads:
+  - chronos_2
+  - moirai_2_0
+  - lag_llama
+  e1_headline: false
+  bolt_deep_tail_via:
+  - e1
+  - e2
+  - e3
+  kendall_tau_e2_e3: pre_registered
+gate:
+  decision_record: docs/gate_decision.md
+  memo_frozen_commit: 8ef8f1b926e8
+  verdict: GO
+  n_conditions: 11
+scientific_config_hash: 297e1889c3efda06
+package_variant_hash: d8d9e7c8f58dc5d2
+variant_refrozen_at: '2026-08-03T23:54:46+00:00'

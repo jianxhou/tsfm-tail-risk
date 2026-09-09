@@ -1,0 +1,11 @@
+{
+ "generator": "paper/figures/make_w512_table.py",
+ "group": "w512_arm",
+ "inputs": {
+  "results/stage4/baseline_backtests.csv": "18769e0248fdfce80a07cd0b0e6c2e193147c6e1918a5e4e7fb7be60fa52701e",
+  "results/v31_w512/baseline_backtests_w512.csv": "8d13498723b3291429d939eda5dd1ecff5ba00ef778d009944dc119889b1b9d2"
+ },
+ "outputs": {
+  "paper/draft/generated/tab_w512.tex": "df5fa2863298415d82c185cfdb8db27561afb242f0249896a0e915f68089301e"
+ }
+}

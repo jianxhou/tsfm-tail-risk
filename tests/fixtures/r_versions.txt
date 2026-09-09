@@ -1,0 +1,4 @@
+R version 4.4.2 (2024-10-31)
+rugarch 1.5.5
+GAS NOT INSTALLED (references TODO — see CHANGELOG 2026-07-04)
+esback 0.3.1

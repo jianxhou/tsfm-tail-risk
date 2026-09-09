@@ -1,0 +1,142 @@
+# Model registry: every HF revision pinned (full 40-char sha, id-asserted from the HF
+# API); pretraining data cutoff must be documented WITH SOURCE before the model
+# produces any scientific number (hard rule 2). Where only a release date is public,
+# it is recorded as an upper bound and the rigorous cutoff registration happens in
+# pilot D2 (proposal §9) — marked TODO-D2.
+#
+# native_tail_behavior (E0 interface facts, frozen 2026-07-04 from the smoke probe,
+# 512-pt t(5) context, levels {1%, 2.5%, 5%}):
+#   INTERPRETATION DISCIPLINE — these entries record the INTERFACE CONTRACT only
+#   (what the official implementation returns when asked for deep-tail levels).
+#   A single probe supports NO calibration conclusion; Chronos-2/Moirai-2 deep-tail
+#   values fatter than the t(5) truth are expected finite-context behavior, not
+#   evidence of miscalibration. Calibration judgment belongs to the pilot (D2-D5).
+
+chronos_bolt:
+  panel: core
+  head_type: bounded_quantile_grid   # trained deciles 0.1–0.9; deep-tail request behavior = D2 fact
+  hf_repo: amazon/chronos-bolt-base
+  hf_revision: 5d9f166d69f47aef3401367a7b842e78fe97b121   # lastModified 2025-11-21
+  adapter: harness/chronos_adapters.py:ChronosBoltAdapter  # smoke-tested 2026-07-04
+  native_tail_behavior: clamp-to-decile-edge   # q0.01=q0.025=q0.05 on probe
+  pretraining_cutoff: "undisclosed; upper bound 2025-11-21 (pinned-revision lastModified;
+    ckpt first released 2024-11). Card states ~100B observations, corpus per the
+    Chronos paper; no calendar cutoff disclosed."   # registered D2 2026-07-04
+  cutoff_sources:
+    - https://huggingface.co/amazon/chronos-bolt-base/raw/5d9f166d69f47aef3401367a7b842e78fe97b121/README.md
+    - https://arxiv.org/abs/2403.07815
+
+chronos_2:
+  panel: core
+  head_type: quantile   # freeze full output-interface facts in pilot D2
+  hf_repo: amazon/chronos-2
+  hf_revision: 29ec3766d36d6f73f0696f85560a422f50e8498c   # lastModified 2026-06-05
+  adapter: harness/chronos_adapters.py:Chronos2Adapter     # smoke-tested 2026-07-04
+  native_tail_behavior: distinguishable   # distinct monotone 1%/2.5%/5% on probe
+  pretraining_cutoff: "undisclosed on card; upper bound 2025-10 (tech report
+    arXiv:2510.15821). Card: real-world + large-scale synthetic; datasets metadata
+    lists Salesforce/GiftEvalPretrain."   # registered D2 2026-07-04
+  cutoff_sources:
+    - https://huggingface.co/amazon/chronos-2/raw/29ec3766d36d6f73f0696f85560a422f50e8498c/README.md
+    - https://arxiv.org/abs/2510.15821
+
+timesfm_2_5:
+  panel: core
+  head_type: quantile   # deciles 0.1–0.9 via forecast(); continuous-quantile head facts = D2
+  hf_repo: google/timesfm-2.5-200m-pytorch
+  hf_revision: 1d952420fba87f3c6dee4f240de0f1a0fbc790e3   # lastModified 2025-10-02
+  code:
+    package: timesfm @ git+https://github.com/google-research/timesfm.git
+    git_commit: 4a6c5cdae7ac73a450843e035fbfc3ffa08e9caf   # PyPI 2.0.2 cannot load 2.5 ckpt
+  adapter: harness/timesfm_adapter.py:TimesFM25Adapter     # smoke-tested 2026-07-04
+  native_tail_behavior: reject-non-decile   # official head refuses levels off the 0.1-0.9 grid
+  pretraining_cutoff: "DISCLOSED (strongest of the panel): Wikimedia Pageviews
+    cutoff 2023-11; Google Trends top queries cutoff EoY-2022; plus
+    GiftEvalPretrain. Effective real-data calendar cutoff 2023-11."   # registered D2 2026-07-04
+  cutoff_sources:
+    - https://huggingface.co/google/timesfm-2.5-200m-pytorch/raw/1d952420fba87f3c6dee4f240de0f1a0fbc790e3/README.md
+    - https://arxiv.org/abs/2310.10688
+
+moirai_2_0:
+  panel: core
+  head_type: quantile   # 2.0 moved from mixture to quantile output (arXiv:2511.11698)
+  hf_repo: Salesforce/moirai-2.0-R-small
+  hf_revision: 30f43ff08c8494f4943ae1521e9d4e94a0fbb389   # lastModified 2026-01-29
+  adapter: harness/moirai_adapter.py:Moirai2Adapter        # smoke-tested 2026-07-04
+  native_tail_behavior: distinguishable   # distinct monotone 1%/2.5%/5% on probe
+  pretraining_cutoff: "undisclosed; upper bound 2025-11 (arXiv:2511.11698).
+    Card: GIFT-Eval Pretrain subset + Train (non-leaking historical context),
+    with pretraining data-quality filtering; no calendar cutoff disclosed."   # registered D2 2026-07-04
+  cutoff_sources:
+    - https://huggingface.co/Salesforce/moirai-2.0-R-small/raw/30f43ff08c8494f4943ae1521e9d4e94a0fbb389/README.md
+    - https://arxiv.org/abs/2511.11698
+
+lag_llama:
+  panel: core
+  head_type: parametric_student_t   # CONFIRMED param head (D2): worker exposes the
+    # official forward's (df, loc, scale) via hook; analytic quantile path live in
+    # the adapter and validated against S=4000 sampling (1% tail within MC noise).
+    # Sampling path retained for D3 S-calibration (exact truth available).
+  native_tail_behavior: analytic-parametric   # closed-form Student-t quantiles at any level.
+    # Stage-4 signer classification: THIRD failure mode — "distinguishable but
+    # systematically too narrow" (native 5% VaR violates ~9.8% on SPX; 0-5% coverage
+    # pass across E-rules; scale verified sane). Contrast: bolt = "clamped /
+    # non-distinguishable". The two pathologies of forecast form.
+  hf_repo: time-series-foundation-models/Lag-Llama
+  hf_revision: 72dcfc29da106acfe38250a60f4ae29d1e56a3d9   # main @ 2024-05-14, lag-llama.ckpt
+  code:
+    install: envs/lag-llama-requirements.txt
+    git_commit: df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9   # github.com/time-series-foundation-models/lag-llama
+  runtime: isolated venv .venv-lag-llama; adapter calls via subprocess (dep conflict
+    with uni2ts — see CHANGELOG 2026-07-04). Persistent server (harness/lagllama_server.py,
+    LagLlamaServerAdapter) added 2026-07-06 for the full grid — one ckpt load, streaming
+    protocol, bit-identical to subprocess (test_lagllama_server.py), ~39x faster/call
+    (2.49s -> 0.06s) => full-grid ~1.5 CPU-h. Gate condition 1 satisfied.
+  pretraining_cutoff: "undisclosed; upper bound 2023-10 (arXiv:2310.08278 v1 —
+    model trained before paper submission; ckpt file dated 2024-05-14).
+    Corpus: Monash + others per paper; no calendar cutoff disclosed."   # registered D2 2026-07-04
+  cutoff_sources:
+    - https://huggingface.co/time-series-foundation-models/Lag-Llama/raw/72dcfc29da106acfe38250a60f4ae29d1e56a3d9/README.md
+    - https://arxiv.org/abs/2310.08278
+
+# --- mechanism panel (12-asset subset; within-family head contrasts) ---
+# Implemented + E0-frozen in the mechanism sub-panel round (2026-07-16, signer-
+# authorized). E0 probe: SAME spec as the CORE heads (seed 20260704, 512-pt
+# t(5)*1.2 ctx, levels {1%,2.5%,5%}); values are the INTERFACE CONTRACT only, no
+# calibration claim (calibration = the mechanism grid, results/mechanism/).
+chronos_base:
+  panel: mechanism
+  head_type: token_quantized_sampling
+  hf_repo: amazon/chronos-t5-base
+  hf_revision: ad294eaacead15db499b740ea4122266dd2a81a2   # id-asserted via HF API 2026-07-04/16
+  adapter: harness/chronos_base_adapter.py:ChronosBaseAdapter   # smoke + faithfulness-tested 2026-07-16
+  native_tail_behavior: distinguishable-token-quantized   # distinct monotone 1/2.5/5% on probe,
+    # but the one-step predictive categorical has <=50 support points (top_k=50) and
+    # only ~3 distinct token-center values below q05 — the deep tail is coarsely
+    # quantized. Extraction = S=1000 empirical quantiles (D3 MC convention); the
+    # fast sampler reproduces native predict() to <0.01 (test_mechanism_adapters).
+  e0_probe: {q01: -0.4024, q025: -0.3860, q05: -0.3696, support_points: 50, tail_centers_below_q05: 3}
+  pretraining_cutoff: "undisclosed; upper bound 2025-11-21 (pinned-revision
+    lastModified; ckpt created 2024-02-21). Corpus per the Chronos paper
+    (arXiv:2403.07815); no calendar cutoff disclosed."   # registered 2026-07-16
+  cutoff_sources:
+    - https://huggingface.co/amazon/chronos-t5-base/raw/ad294eaacead15db499b740ea4122266dd2a81a2/README.md
+    - https://arxiv.org/abs/2403.07815
+
+moirai_1_1:
+  panel: mechanism
+  head_type: mixture
+  hf_repo: Salesforce/moirai-1.1-R-small
+  hf_revision: 0c24ab99db2c1a70ea2a0fc03bf113329772ac64   # id-asserted via HF API 2026-07-04/16
+  adapter: harness/moirai11_adapter.py:Moirai11Adapter    # smoke-tested 2026-07-16
+  native_tail_behavior: distinguishable   # distinct monotone 1/2.5/5% on probe;
+    # mixture is continuous (~1000 distinct sample values). Analytic quantiles are
+    # NOT exposed on the official gluonts SampleForecast path -> analytic_available
+    # = False; extraction = S=1000 empirical quantiles (patch_size="auto" default).
+  e0_probe: {q01: -4.3888, q025: -2.7563, q05: -1.9507, analytic_available: false}
+  pretraining_cutoff: "undisclosed; upper bound 2025-01-21 (pinned-revision
+    lastModified; ckpt created 2024-06-14). Corpus per the Moirai paper
+    (arXiv:2402.02592); no calendar cutoff disclosed."   # registered 2026-07-16
+  cutoff_sources:
+    - https://huggingface.co/Salesforce/moirai-1.1-R-small/raw/0c24ab99db2c1a70ea2a0fc03bf113329772ac64/README.md
+    - https://arxiv.org/abs/2402.02592

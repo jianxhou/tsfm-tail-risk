@@ -1,0 +1,12 @@
+{
+ "generator": "harness/run_v12_sensitivity.py",
+ "group": "v12_sensitivity",
+ "inputs": {
+  "results/stage4/repair_backtests_matched.csv": "c7c16271da3f6fd21f408c46746f01ef5ca69af6b1ff86d8ab287f3e4ee61ea0"
+ },
+ "outputs": {
+  "docs/v12_sensitivity.md": "70f3f8efd90c45f9ae00145b81e1dcadb879912f5045c556e08992f2a8ecfaeb",
+  "results/stage4/v12_criterion_grid.csv": "67149e6f3d92bb94cdaa59614338a4c31672548463473b338c64eb649c671c79",
+  "results/stage4/v12_decomp_uncertainty.csv": "915ff7d6aa41e0ab813e6218941ba8cdb7347ef976edccdf243e7bdefdc1fc77"
+ }
+}
